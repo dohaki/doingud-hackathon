@@ -1,27 +1,64 @@
 # doingud-hackathon
 
-# Notes application Next.js template for Self.ID with TypeScript
+Submission for the DoinGud mini-hackathon.
 
-Using the [Self.ID Framework](https://developers.ceramic.network/tools/self-id/framework/) with [Next.js](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/).
+## Project - **NFT Review**
 
-## Getting Started
+The project is called **NFT Review** and allows users to rate and review NFTs using DIDs and the Ceramic Network.
 
-### 1. Copy this template
+A live demo is deployed to https://doingud-hackathon.vercel.app
+
+### Tech stack
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Self.ID Framework](https://developers.ceramic.network/tools/self-id/framework/)
+- [Glaze Suite](https://developers.ceramic.network/reference/glaze/)
+- [Chakra UI](https://chakra-ui.com/)
+- [react-query](https://react-query.tanstack.com/)
+- [The Graph](https://thegraph.com/en/)
+
+### TODOs
+
+A bunch of things can of course be improved and some things were left out of the scope for this mini-hackathon.
+
+#### Features
+
+- Support for multiple DID auth providers
+  - Currently only Ethereum and MetaMask are supported
+- Support for multiple NFTs
+  - Currently only BAYC NFTs are supported. Ideally this should be dynamic and allow for any NFT that has a deployed subgraph.
+- Search, filter and sort functionality
+- Aggregated reviews and ratings indices
+  - Allow reviews and ratings of multiple DIDs to be aggregated and indexed.
+- Up- and downvote reviews of other users
+- Comment system on reviews
+
+#### Technical
+
+- Proper CI/CD pipeline
+  - Current deployment happens on every merge to `main`. At least another environment beside `production` should also be targeted at some point.
+  - GitHub Action workflows for linting and testing are missing.
+  - Automated releases based on conventional commits
+- Proper tests
+  - In the true spirit of a hackathon, most of the existing code was manually tested.
+  - At least some unit tests for hooks should be added.
+  - Ideally also some cypress or playwright tests.
+
+## Dev env setup
+
+### 1. Clone this repository
 
 ```sh
-npx degit ceramicstudio/self.id/templates/next-notes-typescript my-selfid-app
+git clone https://github.com/dohaki/doingud-hackathon.git
 ```
 
-Replace `my-selfid-app` by the folder name you want and access it once installed.
-
-### 2. Install dependencies
-
-In your application folder:
+### 2. Install deps
 
 ```sh
+cd doingud-hackathon
+
 npm install
-# or
-yarn install
 ```
 
 ### 3. Publish the data model
@@ -30,16 +67,12 @@ This application uses a custom [data model](https://developers.ceramic.network/t
 
 ```sh
 npm run publish-model
-# or
-yarn run publish-model
 ```
 
 ### 4. Start the development server
 
 ```sh
 npm run dev
-# or
-yarn run dev
 ```
 
 ## Scripts
@@ -72,11 +105,3 @@ Run the [`create-model` script](./scripts/create-model.mjs).
 
 This is only needed to make changes to the model used by the app.
 A hex-encoded 32-byte `SEED` environment variable must be present to create a key DID for the model when running the script.
-
-## Learn More
-
-Learn more about [data models](https://developers.ceramic.network/tools/glaze/datamodel/), the [Self.ID SDK](https://developers.ceramic.network/tools/self-id/overview/) and [framework](https://developers.ceramic.network/tools/self-id/framework/) in the [Ceramic documentation](https://developers.ceramic.network/).
-
-## License
-
-Dual licensed under [MIT](https://github.com/ceramicstudio/self.id/blob/main/LICENSE-MIT) and [Apache 2](https://github.com/ceramicstudio/self.id/blob/main/LICENSE-APACHE).
